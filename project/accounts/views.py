@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 from django.contrib.auth.models import User #user에 대한 클래스 가져옴
-from django.comtrib import auth #권한에 관한
+from django.contrib import auth #권한에 관한
 
 def signup(request):
     if request.method == 'POST':

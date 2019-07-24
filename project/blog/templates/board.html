@@ -9,7 +9,7 @@
         <a href={% url 'new'%} class="btn btn-outline-light" role="button" aria-pressed="true">write</a>
         <br><br>
       </div>
-      {% for blog in blogs.all %}
+      {% for blog in posts %}
       <div class="card">
           <h5 class="card-header">{{blog.title}}</h5>
           <div class="card-body">
@@ -20,6 +20,24 @@
         </div>
         <br><br>
       {%endfor%}
+      <div class ="container h-10 text-center">
+        <!--First Previous-->
+        {%if posts.has_previous%} <!--이전 페이지가 있다면 실행-->
+        <a href = "?page=1">First</a>
+        <a href = "?page={{posts.previous_page_number}}">Previous</a>
+        {%endif%}
+
+        <!--3of4-->
+        <span>{{posts.number}}</span>
+        <span>of</span>
+        <span>{{posts.paginator.num_pages}}</span>
+
+        <!--Nexxt Last-->
+        {%if posts.has_next%} <!--다음 페이지가 있다면 실행-->
+        <a href = "?page={{posts.next_page_number}}">Next</a>
+        <a href = "?page={{posts.paginator.num_pages}}">Last</a>
+        {%endif%}
+      </div>
     </div>
   </header>
 </body>
