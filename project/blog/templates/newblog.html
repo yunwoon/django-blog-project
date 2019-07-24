@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block contents %}
+<body>
+  <!-- Masthead -->
+  <header class="masthead">
+    <br><br><br>
+    <div class="container h-100">
+        <form method="POST">
+            {% csrf_token %}
+            <br><br>
+            <table>
+              {{form.as_table}}
+            </table>
+            <br><br>
+            <input class="btn btn-dark" type="submit" value="submit">
+        </form>
+    </div>
+  </header>
+</body>
+{% endblock %}

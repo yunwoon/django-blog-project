@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone #현재 시점을 받아와주기 위해 임포오트!
 from django.core.paginator import Paginator #pagination 을 위해 임포오트!
 from .models import Blog
+from .form import BlogPost
 
 # Create your views here.
 def index(request):
@@ -31,3 +32,18 @@ def create(request): #입력받은 내용을 데이터베이스에 넣어주는 
                   #객체.delete() 는 객체에 해당하는 내용을 데베로부터 지워라!
     return redirect('/board/detail/'+str(blog.id)) #위에 함수들을 다 처리하고 써진 url로 이동,넘겨지는 거임
     #blog.id는 int형이지만 url은 항상 문자형이기 때문에 str로 형변환을 해줌
+
+def blogpost(request):
+    #1.입력된 내용을 처리하는 기능 -> POST
+    if request.method == 'POST':
+        form = BlogPost(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False) #저장하지 않고 model 객체를 가져옴 (post는 블로그형 객체)
+            post.pub_date = timezone.now()
+            post.save()
+            return redirect('board')
+
+    #2. 빈 페이지를 띄워주는 기능 -> GET
+    else:
+        form = BlogPost()
+        return render(request, 'new.html', {'form':form})
