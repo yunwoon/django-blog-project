@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block contents %}
+<body>
+  <!-- Masthead -->
+  <header class="masthead">
+    <br><br><br>
+    <div class="container h-100">
+        <form action="{% url 'create' %}">
+            <h4>title : </h4>
+            <input type="text" name="title">
+            <br><br>
+            <h4>context : </h4>
+            <textarea cols=40 rows=10 name="body"></textarea>
+            <br><br>
+            <input class="btn btn-dark" type="submit" value="submit">
+        </form>
+    </div>
+  </header>
+</body>
+{% endblock %}

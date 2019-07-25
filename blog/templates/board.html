@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block contents %}
+<!--contents가 올 예정임을 알림-->
+
+<body>
+  <!-- Masthead -->
+  <header class="masthead">
+    <br><br><br>
+    <div class="container h-100">
+      <div align="right">
+        <a href={% url 'new'%} class="btn btn-outline-light" role="button" aria-pressed="true">write</a>
+        <br><br>
+      </div>
+      {% for blog in posts %}
+      <div class="card">
+        <h5 class="card-header">{{blog.title}}</h5>
+        <div class="card-body">
+          <!-- <h5 class="card-title">Special title treatment</h5> -->
+          <p class="card-text">{{blog.summary}}</p>
+          <a href={% url 'detail' blog.id%} class="btn btn-primary">more</a>
+        </div>
+      </div>
+      <br><br>
+      {%endfor%}
+      <div class="container h-10">
+        <nav aria-label="Page navigation example text-center">
+          <ul class="pagination justify-content-center">
+            <li class="page-item">
+              <a class="page-link" href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+              </a>
+            </li>
+            <li class="page-item"><a class="page-link" href="?page=1">1</a></li>
+            <li class="page-item"><a class="page-link" href="?page=2">2</a></li>
+            <li class="page-item">
+              <a class="page-link" href="#" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+</body>
+{% endblock %}

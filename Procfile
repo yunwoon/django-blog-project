@@ -1,0 +1,1 @@
+web: gunicorn yunlog.wsgi --log-file -
