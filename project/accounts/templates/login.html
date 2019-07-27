@@ -1,25 +1,35 @@
 {% extends 'base.html' %}
 {% block contents %}
+
 <body>
-    <!-- Masthead -->
-    <header class="masthead">
-      <div class="container h-100">
-        <div class="row h-100 align-items-center justify-content-center text-center">
-          <div class="col-lg-8 align-self-baseline">
-            <br><br><br><br>
-              <h1 class="card-title">Login</h1><br>
-              <form method="POST" action="{%url 'login'%}">
-                  {% csrf_token %}
-              username : 
-              <input name="username" type="text" value=""><br><br>
-              password : 
-              <input name="password1" type="password" value=""><br><br>
-              <input class="btn btn-outline-light" type="submit" value=Login">
-            </form>
-              <br><br>
-          </div>
+  <!-- Masthead -->
+  <header class="masthead">
+    <div class="container h-100">
+      <div class="row h-100 align-items-center justify-content-center text-center">
+        <div class="col-lg-8 align-self-baseline">
+          <br><br><br><br><br><br><br><br><br><br>
+          {% if error %}
+          {{error}}
+          <br><br>
+          {% endif %}
+          <form method="POST" action="{%url 'login'%}">
+            {% csrf_token %}
+            <div class="form-group">
+              <label for="inputname" class="text-white">이름</label>
+              <input type="text" name="username" class="form-control" id="inputname" aria-describedby="emailHelp"
+                placeholder="input name">
+            </div><br>
+            <div class="form-group">
+              <label for="inputpwd" class="text-white">비밀번호</label>
+              <input type="password" name="password" class="form-control" id="inputpwd" placeholder="input password">
+            </div><br><br>
+            <input class="btn btn-outline-light" type="submit" value=Login>&nbsp;&nbsp;
+            <button class="btn btn-outline-light" type="button" onclick="location.href='../signup/'">Sign-up</button>
+          </form>
+          <br><br>
         </div>
       </div>
-    </header>
-  </body>
+    </div>
+  </header>
+</body>
 {% endblock %}

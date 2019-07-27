@@ -7,10 +7,17 @@
   <header class="masthead">
     <br><br><br>
     <div class="container h-100">
+      {% if user.is_authenticated %}
       <div align="right">
         <a href={% url 'new'%} class="btn btn-outline-light" role="button" aria-pressed="true">write</a>
         <br><br>
       </div>
+      {% else %}
+      <div align="right">
+          <a href="#" class="btn btn-outline-light" role="button" aria-pressed="true">hello</a>
+          <br><br>
+      </div>
+      {% endif %}
       {% for blog in posts %}
       <div class="card">
         <h5 class="card-header">{{blog.title}}</h5>

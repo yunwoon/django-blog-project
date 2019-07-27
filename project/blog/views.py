@@ -15,9 +15,11 @@ def board(request):
     posts = paginator.get_page(page) #request된 페이지를 얻어온 뒤 return 해 준다
     return render(request,'board.html',{'blogs':blogs, 'posts':posts})
 
-def detail(request,blog_id):
+def detail(request,blog_id): #more을 누르면 더 자세하게 블로그 내용 보기 가능
     blog_detail =  get_object_or_404(Blog,pk=blog_id)
     return render(request,'detail.html',{'blog':blog_detail})
+    #request 이외의 추가적인 정보 필요, 몇 번 객체를 다룰 것인지 정보 추가로 필요
+    #때문에 인자는 request, blog_id 두 개!
 
 def new(request):  #new.html띄어주는 함수
     return render(request,'new.html')

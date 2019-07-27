@@ -11,7 +11,14 @@
         </div>
         <div class="col-lg-8 align-self-baseline">
           <p class="text-white-75 font-weight-light mb-5">2 0 1 9  Build up my blog</p>
-          <a class="btn btn-primary btn-xl js-scroll-trigger" href={% url 'signup' %}>GET STARTED</a>
+          {% if user.is_authenticated %}
+          <a class="btn btn-primary btn-xl js-scroll-trigger" href="javascript:{document.getElementById('logout').submit()}">GET OUT</a>
+          <form id ="logout" method="POST" action="{% url 'logout' %}">
+            {% csrf_token %}<input type="hidden"/>
+          </form>
+          {% else %}
+          <a class="btn btn-primary btn-xl js-scroll-trigger" href={%url 'login'%}>GET STARTED</a>
+          {% endif %}
         </div>
       </div>
     </div>

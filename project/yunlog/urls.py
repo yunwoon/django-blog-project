@@ -26,7 +26,7 @@ urlpatterns = [
     path('',blog.views.index,name="index"),
     path('board/',include('blog.urls')),
     path('portfolio/',portfolio.views.portfolio,name="portfolio"),
-    path('accounts/',include('accounts.urls')),
+    path('accounts/',include('accounts.urls')), #allauth 와 accounts 대 혼 란
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) #MEDIA 를 더하는거임
 
 # 바로 위에 static 한거랑 같게 따로 쓰고 싶으면
