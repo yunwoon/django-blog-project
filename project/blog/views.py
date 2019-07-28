@@ -33,3 +33,6 @@ def create(request): #입력받은 내용을 데이터베이스에 넣어주는 
                   #객체.delete() 는 객체에 해당하는 내용을 데베로부터 지워라!
     return redirect('/board/detail/'+str(blog.id)) #위에 함수들을 다 처리하고 써진 url로 이동,넘겨지는 거임
     #blog.id는 int형이지만 url은 항상 문자형이기 때문에 str로 형변환을 해줌
+
+def place(request):
+    return render(request,'place.html')
