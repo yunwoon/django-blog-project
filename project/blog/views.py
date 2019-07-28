@@ -47,3 +47,6 @@ def blogpost(request):
     else:
         form = BlogPost()
         return render(request, 'new.html', {'form':form})
+
+def place(request):
+    return render(request,'place.html')
