@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'suit',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.sites', #소셜로그인을 위해!!
@@ -67,7 +68,7 @@ ROOT_URLCONF = 'yunlog.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['blog/templates'],
+        'DIRS': [], # 나중에 오류뜨면 [] 안에 넣어 -> 'blog/templates'
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
