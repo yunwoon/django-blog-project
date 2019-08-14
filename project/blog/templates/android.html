@@ -9,28 +9,17 @@
     <div class="container h-100">
       <!--버튼을 누르면 소팅하는 버튼그룹 (누르면 view.py에서 함수실행)-->
       <div class="btn-group btn-group-justified text-center" style="width:40%;float:right;">
-        <a href={% url 'board' %} class="btn btn-primary"><strong>문학</strong></a>
-        <a href={% url 'java' %} class="btn btn-primary">자바</a>
-        <a href={% url 'android' %} class="btn btn-primary">안드로이드</a>
+          <a href={% url 'board' %} class="btn btn-primary">문학</a>
+          <a href={% url 'java' %} class="btn btn-primary">자바</a>
+          <a href={% url 'android' %} class="btn btn-primary"><strong>안드로이드</strong></a>
       </div><br><br><br>
-      {% if user.is_authenticated %}
-      <div align="right">
-        <a href={% url 'new'%} class="btn btn-outline-light" role="button" aria-pressed="true">write</a>
-        <br><br>
-      </div>
-      {% else %}
-      <div align="right">
-        <a href="#" class="btn btn-outline-light" role="button" aria-pressed="true">hello</a>
-        <br><br>
-      </div>
-      {% endif %}
-      {% for blog in posts %}
+      {% for android in posts %}
       <div class="card">
-        <h5 class="card-header">{{blog.title}}</h5>
+        <h5 class="card-header">{{android.title}}</h5>
         <div class="card-body">
           <!-- <h5 class="card-title">Special title treatment</h5> -->
-          <p class="card-text">{{blog.summary}}</p>
-          <a href={% url 'detail' blog.id%} class="btn btn-primary">more</a>
+          <p class="card-text">{{android.summary}}</p>
+          <a href={% url 'detail3' android.id%} class="btn btn-primary">more</a>
         </div>
       </div>
       <br><br>

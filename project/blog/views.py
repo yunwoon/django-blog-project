@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone #현재 시점을 받아와주기 위해 임포오트!
 from django.core.paginator import Paginator #pagination 을 위해 임포오트!
-from .models import Blog
+from .models import Blog, Java, Android
 
 # Create your views here.
 def index(request):
@@ -36,3 +36,27 @@ def create(request): #입력받은 내용을 데이터베이스에 넣어주는 
 
 def place(request):
     return render(request,'place.html')
+
+def java(request):
+    javas = Java.objects
+    java_list = Java.objects.all() #블로그의 모든 글을 대상으로
+    paginator = Paginator(java_list, 3) #블로그 객체 세 개를 한 페이지로 자르기
+    page = request.GET.get('page') #request된 페이지가 뭔지 알아내고 (request페이지를 변수에 담고)
+    posts = paginator.get_page(page) #request된 페이지를 얻어온 뒤 return 해 준다
+    return render(request,'java.html',{'javas':javas, 'posts':posts})
+
+def detail2(request,java_id):
+    java_detail =  get_object_or_404(Java,pk=java_id)
+    return render(request,'detail2.html',{'java':java_detail})
+
+def android(request):
+    androids = Android.objects
+    android_list = Android.objects.all() #블로그의 모든 글을 대상으로
+    paginator = Paginator(android_list, 3) #블로그 객체 세 개를 한 페이지로 자르기
+    page = request.GET.get('page') #request된 페이지가 뭔지 알아내고 (request페이지를 변수에 담고)
+    posts = paginator.get_page(page) #request된 페이지를 얻어온 뒤 return 해 준다
+    return render(request,'android.html',{'androids':androids, 'posts':posts})
+
+def detail3(request,android_id):
+    andorid_detail =  get_object_or_404(Android,pk=android_id)
+    return render(request,'detail3.html',{'android':android_detail})
