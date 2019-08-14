@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block contents %}
+
 <body>
   <!-- Masthead -->
   <header class="masthead">
@@ -7,9 +8,9 @@
       <div class="row h-100 align-items-center justify-content-center text-center">
         <div class="col-lg-8 align-self-baseline">
           <br><br><br><br>
-            <h1 class="card-title">{{android.title}}</h1>
-            <p class="text-white-75 font-weight-light mb-5">{{android.pub_date}}</p>
-            <p class="text-white-75 font-weight-light mb-5">{{android.body}}</p>
+            <h1 class="card-title"><strong>{{android.title}}</strong></h1>
+            <p id="ft_nm" class="text-white-75 font-weight-light mb-5 text-sm-right">{{android.pub_date}}</p>
+            <p id="ft_nm" class="text-white-75 font-weight-light mb-5 text-sm-left">{{android.body|linebreaksbr}}</p>
             <br><br>
         </div>
       </div>

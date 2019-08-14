@@ -58,5 +58,5 @@ def android(request):
     return render(request,'android.html',{'androids':androids, 'posts':posts})
 
 def detail3(request,android_id):
-    andorid_detail =  get_object_or_404(Android,pk=android_id)
+    android_detail =  get_object_or_404(Android,pk=android_id)
     return render(request,'detail3.html',{'android':android_detail})
