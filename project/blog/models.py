@@ -21,7 +21,7 @@ class Android(models.Model):
         return self.title
         
     def summary(self):
-        return self.body[:100]
+        return self.body[:50]
 
 class Java(models.Model):
     title = models.CharField(max_length=200) #문자 데이터를 title로 정의함
@@ -32,4 +32,4 @@ class Java(models.Model):
         return self.title
         
     def summary(self):
-        return self.body[:100]
+        return self.body[:50]

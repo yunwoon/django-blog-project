@@ -6,12 +6,16 @@
   <header class="masthead">
     <div class="container h-100">
       <div class="row h-100 align-items-center justify-content-center text-center">
-        <div class="col-lg-8 align-self-baseline">
-          <br><br><br><br>
-            <h1 class="card-title"><strong>{{android.title}}</strong></h1>
-            <p id="ft_nm" class="text-white-75 font-weight-light mb-5 text-sm-right">{{android.pub_date}}</p>
-            <p id="ft_nm" class="text-white-75 font-weight-light mb-5 text-sm-left">{{android.body|linebreaksbr}}</p>
+        <div class="col-lg-11 align-self-baseline">
+          <br><br><br>
+          <div class="shadow p-3 mb-8 bg-transparent rounded">
             <br><br>
+            <h1 class="card-title"><strong>{{android.title}}</strong></h1>
+            <h5 class="text-black-75 font-weight-light mb-5 mr-5 text-sm-right">{{android.pub_date}}</h5>
+            <hr class="mx-5" style="border: solid 1px black;"><br><br>
+            <h6 id="ft_nm" class="text-white-50 font-weight-light mx-5 mb-5 text-sm-left">{{android.body|linebreaksbr}}</h6>
+            <br><br>
+          </div>
         </div>
       </div>
     </div>

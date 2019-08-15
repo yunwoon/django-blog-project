@@ -48,9 +48,16 @@
   box-sizing: border-box;
 }
 
-#ft_nm{
-  font-family: CaviarDreams_ltalic, sans-serif;
+@font-face{
+  font-family: 'lotte_Light';
+  font-style:normal;
   font-weight: 200;
+  src:url('../lotte_Light.ttf') format('truetype');
+}
+
+#ft_nm{
+  font-family: 'lotte_Light';
+  line-height: 2em;
 }
 
 html {
