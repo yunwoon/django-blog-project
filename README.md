@@ -1,4 +1,4 @@
-# Likelion thrid project
+# Likelion third project
 
 make my own blog
 
